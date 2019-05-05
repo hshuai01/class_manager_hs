@@ -1,0 +1,8 @@
+cn\tohuangshuai\web\controller\AdviceController.class
+cn\tohuangshuai\web\controller\HelloController.class
+cn\tohuangshuai\WebMVCConfig.class
+cn\tohuangshuai\web\controller\BasicController.class
+cn\tohuangshuai\web\controller\HSClassController.class
+cn\tohuangshuai\web\controller\TeacherController.class
+cn\tohuangshuai\CMHApplication.class
+cn\tohuangshuai\web\controller\StudentController.class

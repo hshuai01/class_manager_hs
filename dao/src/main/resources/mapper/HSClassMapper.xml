@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tohuangshuai.dao.mapper.HSClassMapper" >
+    <resultMap id="BaseResultMap" type="cn.tohuangshuai.pojo.domain.HSClass" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="grade" property="grade" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="manager_id" property="managerId" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="DATE" />
+    </resultMap>
+
+    <select id="getMyClasses" resultMap="BaseResultMap" parameterType="String">
+        select * from h_s_class where manager_id = #{managerId}
+    </select>
+
+    <update id="addClassCount" parameterType="String">
+        update h_s_class set `number` = `number` + 1 where id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tohuangshuai.dao.mapper.AdviceMapper">
+    <resultMap id="BaseResultMap" type="cn.tohuangshuai.pojo.domain.Advice">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="context" property="context" jdbcType="VARCHAR"/>
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="class_id" property="classId" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="author_name" property="authorName" jdbcType="VARCHAR"/>
+        <result column="author_face" property="authorFace" jdbcType="VARCHAR"/>
+        <result column="author_status" property="authorStatus" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="queryAllAdvice" resultMap="BaseResultMap" parameterType="String">
+        select * from `advice` where 1=1
+        <if test=" classId != null and classId != '' ">
+            and class_id = #{classId}
+        </if>
+        order by create_time desc
+    </select>
+
+
+</mapper>

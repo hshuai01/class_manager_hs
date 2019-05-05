@@ -1,0 +1,8 @@
+cn\tohuangshuai\service\impl\AdviceServiceImpl.class
+cn\tohuangshuai\service\AdviceService.class
+cn\tohuangshuai\service\HSClassService.class
+cn\tohuangshuai\service\impl\StudentServiceImpl.class
+cn\tohuangshuai\service\StudentService.class
+cn\tohuangshuai\service\TeacherService.class
+cn\tohuangshuai\service\impl\HSClassServiceImpl.class
+cn\tohuangshuai\service\impl\TeacherServiceImpl.class

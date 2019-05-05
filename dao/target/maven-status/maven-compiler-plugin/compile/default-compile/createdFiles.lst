@@ -1,0 +1,5 @@
+cn\tohuangshuai\dao\mapper\HSClassMapper.class
+cn\tohuangshuai\dao\mapper\UserMapper.class
+cn\tohuangshuai\dao\mapper\StudentMapper.class
+cn\tohuangshuai\dao\mapper\TeacherMapper.class
+cn\tohuangshuai\dao\mapper\AdviceMapper.class

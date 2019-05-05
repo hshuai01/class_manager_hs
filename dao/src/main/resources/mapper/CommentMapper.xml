@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tohuangshuai.dao.mapper.CommentMapper" >
+    <resultMap id="BaseResultMap" type="cn.tohuangshuai.pojo.domain.Comment" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="comments" property="comments" jdbcType="VARCHAR" />
+        <result column="author_id" property="authorId" jdbcType="VARCHAR" />
+        <result column="author_face" property="authorFace" jdbcType="VARCHAR" />
+        <result column="author_name" property="authorName" jdbcType="VARCHAR" />
+        <result column="advice_id" property="adviceId" jdbcType="VARCHAR" />
+        <result column="father_comment_id" property="fatherCommentId" jdbcType="VARCHAR" />
+        <result column="to_author_id" property="toAuthorId" jdbcType="VARCHAR" />
+        <result column="to_author_name" property="toAuthorName" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+
+</mapper>
