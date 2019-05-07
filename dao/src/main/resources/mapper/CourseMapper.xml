@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tohuangshuai.dao.mapper.CourseMapper" >
+    <resultMap id="BaseResultMap" type="cn.tohuangshuai.pojo.domain.Course" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="teacher_id" property="teacherId" jdbcType="VARCHAR" />
+        <result column="max_stus" property="maxStus" jdbcType="INTEGER" />
+        <result column="count" property="count" jdbcType="INTEGER" />
+        <result column="site" property="site" jdbcType="VARCHAR" />
+        <result column="grade" property="grade" jdbcType="INTEGER" />
+        <result column="school_time" property="schoolTime" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="desc" property="desc" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+</mapper>
