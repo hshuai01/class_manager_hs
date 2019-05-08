@@ -1,8 +1,10 @@
 package cn.tohuangshuai.web.controller;
 
 import cn.tohuangshuai.common.util.HSJSONResult;
+import cn.tohuangshuai.pojo.domain.Course;
 import cn.tohuangshuai.pojo.domain.Student;
 import cn.tohuangshuai.pojo.domain.Teacher;
+import cn.tohuangshuai.service.CourseService;
 import cn.tohuangshuai.service.StudentService;
 import cn.tohuangshuai.service.TeacherService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -21,6 +23,8 @@ public class TeacherController extends BasicController{
     private TeacherService teacherService;
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private CourseService courseService;
 
     /**
      * 登录功能
@@ -120,6 +124,21 @@ public class TeacherController extends BasicController{
         return HSJSONResult.ok();
     }
 
+    /**
+     *
+     * @param course
+     * @return
+     */
+    @RequestMapping("/createCourse")
+    public HSJSONResult createCourse(@RequestBody Course course){
 
+        if (course.getTeacherId()==null){
+            return HSJSONResult.error("非法操作");
+        }
+
+        courseService.save(course);
+
+        return HSJSONResult.ok();
+    }
 
 }

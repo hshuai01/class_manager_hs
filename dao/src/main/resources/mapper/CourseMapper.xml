@@ -11,7 +11,7 @@
         <result column="grade" property="grade" jdbcType="INTEGER" />
         <result column="school_time" property="schoolTime" jdbcType="VARCHAR" />
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="desc" property="desc" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
     </resultMap>
 
 
