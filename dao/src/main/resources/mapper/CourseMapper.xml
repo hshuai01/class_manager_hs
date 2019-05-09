@@ -15,4 +15,12 @@
     </resultMap>
 
 
+    <select id="selectAllByTeacherId" parameterType="String" resultMap="BaseResultMap">
+        select * from course where teacher_id = #{teacherId} order by create_time desc
+    </select>
+
+    <select id="selectAllByGrade" parameterType="Integer" resultMap="BaseResultMap">
+        select * from course where grade = #{grade} order by create_time desc
+    </select>
+
 </mapper>

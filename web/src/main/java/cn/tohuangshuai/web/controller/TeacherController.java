@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/teacher")
@@ -101,7 +102,7 @@ public class TeacherController extends BasicController{
         teacher.setImageUrl(uploadPathDB);
         teacher.setId(id);
         teacherService.updateTeacherInfo(teacher);
-        return HSJSONResult.ok("上传成功");
+        return HSJSONResult.ok(uploadPathDB);
     }
 
     /**
@@ -125,7 +126,7 @@ public class TeacherController extends BasicController{
     }
 
     /**
-     *
+     *  发布课程
      * @param course
      * @return
      */
@@ -139,6 +140,17 @@ public class TeacherController extends BasicController{
         courseService.save(course);
 
         return HSJSONResult.ok();
+    }
+
+    @RequestMapping("/getMyCourse")
+    public HSJSONResult getMyCourse(String teacherId){
+        if (StringUtils.isEmpty(teacherId)){
+            return HSJSONResult.error("请求错误");
+        }
+
+        List<Course> courses = courseService.getCoursesByTeacherId(teacherId);
+
+        return HSJSONResult.ok(courses);
     }
 
 }

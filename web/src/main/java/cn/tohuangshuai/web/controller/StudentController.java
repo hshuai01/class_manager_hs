@@ -2,7 +2,11 @@ package cn.tohuangshuai.web.controller;
 
 import cn.tohuangshuai.common.util.HSJSONResult;
 import cn.tohuangshuai.common.util.IdUtil;
+import cn.tohuangshuai.pojo.domain.Course;
+import cn.tohuangshuai.pojo.domain.HSClass;
 import cn.tohuangshuai.pojo.domain.Student;
+import cn.tohuangshuai.service.CourseService;
+import cn.tohuangshuai.service.HSClassService;
 import cn.tohuangshuai.service.StudentService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,12 @@ public class StudentController extends BasicController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private HSClassService hsClassService;
 
     /**
      * 学生注册功能
@@ -137,7 +147,20 @@ public class StudentController extends BasicController {
         student.setImageUrl(uploadPathDB);
         student.setId(id);
         studentService.updateStudentInfo(student);
-        return HSJSONResult.ok("上传成功");
+        return HSJSONResult.ok(student);
+    }
+
+
+    @RequestMapping("/getCoursesByGrade")
+    public HSJSONResult getCoursesByGrade(String classId){
+        if (classId == null){
+            return HSJSONResult.error("请求出错");
+        }
+        HSClass hsClass = hsClassService.getClassById(classId);
+
+        List<Course> courses = courseService.getCoursesByGrade(hsClass.getGrade());
+
+        return HSJSONResult.ok(courses);
     }
 
 

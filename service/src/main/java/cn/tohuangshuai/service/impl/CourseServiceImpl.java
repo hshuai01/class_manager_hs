@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -29,5 +30,33 @@ public class CourseServiceImpl implements CourseService {
         course.setCount(0);
         course.setCreateTime(new Date());
         courseMapper.insertSelective(course);
+    }
+
+    /**
+     * 查询某位教师的所有课程
+     * @param teacherId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<Course> getCoursesByTeacherId(String teacherId) {
+
+        List<Course> courses = courseMapper.selectAllByTeacherId(teacherId);
+
+        return courses;
+    }
+
+    /**
+     * 根据班级获取课程列表
+     * @param grade
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<Course> getCoursesByGrade(Integer grade) {
+
+        List<Course> courses = courseMapper.selectAllByGrade(grade);
+
+        return courses;
     }
 }
