@@ -4,6 +4,7 @@ import cn.tohuangshuai.common.util.HSJSONResult;
 import cn.tohuangshuai.common.util.IdUtil;
 import cn.tohuangshuai.pojo.domain.Course;
 import cn.tohuangshuai.pojo.domain.HSClass;
+import cn.tohuangshuai.pojo.domain.StuCourse;
 import cn.tohuangshuai.pojo.domain.Student;
 import cn.tohuangshuai.service.CourseService;
 import cn.tohuangshuai.service.HSClassService;
@@ -151,17 +152,81 @@ public class StudentController extends BasicController {
     }
 
 
-    @RequestMapping("/getCoursesByGrade")
-    public HSJSONResult getCoursesByGrade(String classId){
+    /**
+     *
+     * @param classId
+     * @return
+     */
+    @RequestMapping("/getCoursesById")
+    public HSJSONResult getCoursesByGrade(String classId,String studentId){
         if (classId == null){
             return HSJSONResult.error("请求出错");
         }
+        if (studentId == null){
+            return HSJSONResult.error("请求出错");
+        }
+
         HSClass hsClass = hsClassService.getClassById(classId);
 
-        List<Course> courses = courseService.getCoursesByGrade(hsClass.getGrade());
+        List<Course> courses = courseService.getCoursesByGrade(hsClass.getGrade(),studentId);
 
         return HSJSONResult.ok(courses);
     }
 
+    /**
+     * 获取我选择的课程
+     * @param id
+     * @return
+     */
+    @RequestMapping("/getMyCourses")
+    public HSJSONResult getMyCourses(String id){
+
+        if (id == null){
+            return HSJSONResult.error("请求错误");
+        }
+
+        List<Course> courses = courseService.getCoursesByStudentId(id);
+
+        return HSJSONResult.ok(courses);
+    }
+
+    /**
+     * 进行选课
+     * @param stuCourse
+     * @return
+     */
+    @RequestMapping("/chooseCourse")
+    public HSJSONResult chooseCourse(@RequestBody StuCourse stuCourse){
+
+        if (stuCourse.getStudentId() == null){
+            return HSJSONResult.error("请求错误");
+        }
+
+        if (stuCourse.getCourseId() == null){
+            return HSJSONResult.error("请求错误");
+        }
+        courseService.chooseCourse(stuCourse);
+
+        return HSJSONResult.ok();
+    }
+
+    /**
+     * 取消选课
+     * @param stuCourse
+     * @return
+     */
+    @RequestMapping("/cancelCourse")
+    public HSJSONResult cancelCourse(@RequestBody StuCourse stuCourse){
+        if (stuCourse.getStudentId() == null){
+            return HSJSONResult.error("请求错误");
+        }
+
+        if (stuCourse.getCourseId() == null){
+            return HSJSONResult.error("请求错误");
+        }
+
+        courseService.cancelCourse(stuCourse);
+        return HSJSONResult.ok();
+    }
 
 }

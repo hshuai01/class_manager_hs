@@ -23,4 +23,19 @@
         select * from course where grade = #{grade} order by create_time desc
     </select>
 
+    <update id="addCount" parameterType="String" >
+        update course set `count` = `count` + 1 where id = #{courseId}
+    </update>
+
+    <update id="reduceCount" parameterType="String" >
+        update course set `count` = `count` - 1 where id = #{courseId}
+    </update>
+
+    <select id="getCoursesByIdList" parameterType="List" resultMap="BaseResultMap">
+        select * from course where id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
 </mapper>

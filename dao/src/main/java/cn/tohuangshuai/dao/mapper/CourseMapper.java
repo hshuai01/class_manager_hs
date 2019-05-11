@@ -12,4 +12,10 @@ public interface CourseMapper extends MyMapper<Course> {
     List<Course> selectAllByTeacherId(@Param("teacherId") String teacherId);
 
     List<Course> selectAllByGrade(Integer grade);
+
+    void addCount(String courseId);
+
+    List<Course> getCoursesByIdList(List<String> coursesId);
+
+    void reduceCount(String courseId);
 }
