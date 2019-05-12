@@ -1,7 +1,9 @@
 package cn.tohuangshuai.service.impl;
 
+import cn.tohuangshuai.dao.mapper.StuCourseMapper;
 import cn.tohuangshuai.dao.mapper.StudentMapper;
 import cn.tohuangshuai.pojo.domain.HSClass;
+import cn.tohuangshuai.pojo.domain.StuCourse;
 import cn.tohuangshuai.pojo.domain.Student;
 import cn.tohuangshuai.service.HSClassService;
 import cn.tohuangshuai.service.StudentService;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +25,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private HSClassService hsClassService;
+
+    @Autowired
+    private StuCourseMapper stuCourseMapper;
 
     //注册学生
     @Transactional(propagation = Propagation.REQUIRED)
@@ -104,5 +110,29 @@ public class StudentServiceImpl implements StudentService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("id",student.getId());
         studentMapper.updateByExampleSelective(student,example);
+    }
+
+    /**
+     * 获取课程下的学生列表
+     * @param courseId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<Student> getStudentsByCourse(String courseId) {
+        Example example = new Example(StuCourse.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("courseId",courseId);
+        List<StuCourse> stuCourses = stuCourseMapper.selectByExample(example);
+        List<String> studentIds = new ArrayList<>();
+        if (stuCourses.size()!=0){
+            for (StuCourse stuCourse: stuCourses){
+                studentIds.add(stuCourse.getStudentId());
+            }
+            return studentMapper.getStudentsByIdList(studentIds);
+        }else {
+            return null;
+        }
+
     }
 }

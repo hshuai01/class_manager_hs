@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface StudentMapper extends MyMapper<Student> {
     List<Student> getStudentsByClass(@Param("classId") String classId);
+
+    List<Student> getStudentsByIdList(List<String> studentIds);
 }

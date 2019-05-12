@@ -16,4 +16,6 @@ public interface StudentService {
     List<Student> getStudentsByClass(String classId);
 
     void updateStudentInfo(Student student);
+
+    List<Student> getStudentsByCourse(String courseId);
 }

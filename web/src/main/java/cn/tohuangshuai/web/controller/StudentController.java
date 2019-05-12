@@ -229,4 +229,21 @@ public class StudentController extends BasicController {
         return HSJSONResult.ok();
     }
 
+
+    /**
+     * 获取该班级下的学生列表
+     * @param courseId
+     * @return
+     */
+    @RequestMapping("/getStudentsByCourse")
+    public HSJSONResult getStudentsByCourse(String courseId){
+        if (courseId == null){
+            return HSJSONResult.error("请求错误");
+        }
+
+        List<Student> students = studentService.getStudentsByCourse(courseId);
+
+        return HSJSONResult.ok(students);
+    }
+
 }

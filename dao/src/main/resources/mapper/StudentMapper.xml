@@ -16,4 +16,11 @@
         order by `status` asc
     </select>
 
+    <select id="getStudentsByIdList" resultMap="BaseResultMap" parameterType="List">
+       select `id`,`name`,`username`,`image_url`,`status`,`class_id` from student where `id` in
+       <foreach collection="list" separator="," open="(" close=")" index="index" item="item">
+           #{item}
+       </foreach>
+    </select>
+
 </mapper>
