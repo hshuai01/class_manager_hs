@@ -1,5 +1,7 @@
 cn\tohuangshuai\web\controller\AdviceController.class
+cn\tohuangshuai\web\controller\CommentController.class
 cn\tohuangshuai\web\controller\HelloController.class
+cn\tohuangshuai\WarStartApplication.class
 cn\tohuangshuai\WebMVCConfig.class
 cn\tohuangshuai\web\controller\BasicController.class
 cn\tohuangshuai\web\controller\HSClassController.class

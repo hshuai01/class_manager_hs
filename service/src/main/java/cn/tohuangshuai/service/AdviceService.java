@@ -10,4 +10,6 @@ public interface AdviceService {
     String save(Advice advice);
 
     PagedResult getAllAdvice(Integer page, Integer pageSize, String advice);
+
+    void updateUserFace(String id, String imageUrl);
 }

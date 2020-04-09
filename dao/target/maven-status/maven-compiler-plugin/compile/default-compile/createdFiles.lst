@@ -1,5 +1,8 @@
+cn\tohuangshuai\dao\mapper\StuCourseMapper.class
 cn\tohuangshuai\dao\mapper\HSClassMapper.class
 cn\tohuangshuai\dao\mapper\UserMapper.class
-cn\tohuangshuai\dao\mapper\StudentMapper.class
+cn\tohuangshuai\dao\mapper\CommentMapper.class
 cn\tohuangshuai\dao\mapper\TeacherMapper.class
+cn\tohuangshuai\dao\mapper\CourseMapper.class
+cn\tohuangshuai\dao\mapper\StudentMapper.class
 cn\tohuangshuai\dao\mapper\AdviceMapper.class

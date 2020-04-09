@@ -6,9 +6,7 @@ import cn.tohuangshuai.pojo.domain.Course;
 import cn.tohuangshuai.pojo.domain.HSClass;
 import cn.tohuangshuai.pojo.domain.StuCourse;
 import cn.tohuangshuai.pojo.domain.Student;
-import cn.tohuangshuai.service.CourseService;
-import cn.tohuangshuai.service.HSClassService;
-import cn.tohuangshuai.service.StudentService;
+import cn.tohuangshuai.service.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -33,6 +31,12 @@ public class StudentController extends BasicController {
 
     @Autowired
     private HSClassService hsClassService;
+
+    @Autowired
+    private AdviceService adviceService;
+
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 学生注册功能
@@ -106,7 +110,7 @@ public class StudentController extends BasicController {
      * @param id
      * @return
      */
-    @RequestMapping("uploadFace")
+    @RequestMapping("/uploadFace")
     public HSJSONResult uploadFace (@RequestParam("file") MultipartFile[] files, String id){
         if (StringUtils.isEmpty(id)){
             return HSJSONResult.error("用户id为空！");
@@ -148,7 +152,9 @@ public class StudentController extends BasicController {
         student.setImageUrl(uploadPathDB);
         student.setId(id);
         studentService.updateStudentInfo(student);
-        return HSJSONResult.ok(student);
+        adviceService.updateUserFace(student.getId(),student.getImageUrl());
+        commentService.updateUserFace(student.getId(),student.getImageUrl());
+        return HSJSONResult.ok(uploadPathDB);
     }
 
 

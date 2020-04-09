@@ -1,6 +1,10 @@
+cn\tohuangshuai\pojo\domain\vo\CommentVO.class
+cn\tohuangshuai\pojo\domain\Comment.class
 cn\tohuangshuai\pojo\domain\vo\AdviceVO.class
-cn\tohuangshuai\pojo\domain\Advice.class
-cn\tohuangshuai\pojo\domain\Student.class
 cn\tohuangshuai\pojo\domain\HSClass.class
+cn\tohuangshuai\pojo\domain\Advice.class
+cn\tohuangshuai\pojo\domain\StuCourse.class
+cn\tohuangshuai\pojo\domain\Course.class
+cn\tohuangshuai\pojo\domain\Student.class
 cn\tohuangshuai\pojo\domain\Teacher.class
 cn\tohuangshuai\pojo\domain\User.class

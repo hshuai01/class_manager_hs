@@ -1,5 +1,8 @@
 D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\UserMapper.java
+D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\CommentMapper.java
+D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\CourseMapper.java
 D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\TeacherMapper.java
 D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\StudentMapper.java
 D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\HSClassMapper.java
 D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\AdviceMapper.java
+D:\JavaWebProJect\class_manager_hs\dao\src\main\java\cn\tohuangshuai\dao\mapper\StuCourseMapper.java

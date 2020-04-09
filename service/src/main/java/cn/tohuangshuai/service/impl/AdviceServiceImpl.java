@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -52,5 +53,21 @@ public class AdviceServiceImpl implements AdviceService {
         result.setTotal(listInfo.getPages());  //总页数
         return result;
 
+    }
+
+    /**
+     * 修改通知头像
+     * @param id
+     * @param imageUrl
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserFace(String id, String imageUrl) {
+        Example example = new Example(Advice.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("author",id);
+        Advice advice = new Advice();
+        advice.setAuthorFace(imageUrl);
+        adviceMapper.updateByExampleSelective(advice,example);
     }
 }

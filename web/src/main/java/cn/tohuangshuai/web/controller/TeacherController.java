@@ -4,9 +4,7 @@ import cn.tohuangshuai.common.util.HSJSONResult;
 import cn.tohuangshuai.pojo.domain.Course;
 import cn.tohuangshuai.pojo.domain.Student;
 import cn.tohuangshuai.pojo.domain.Teacher;
-import cn.tohuangshuai.service.CourseService;
-import cn.tohuangshuai.service.StudentService;
-import cn.tohuangshuai.service.TeacherService;
+import cn.tohuangshuai.service.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -26,6 +24,10 @@ public class TeacherController extends BasicController{
     private StudentService studentService;
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private AdviceService adviceService;
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 登录功能
@@ -102,6 +104,8 @@ public class TeacherController extends BasicController{
         teacher.setImageUrl(uploadPathDB);
         teacher.setId(id);
         teacherService.updateTeacherInfo(teacher);
+        adviceService.updateUserFace(teacher.getId(),uploadPathDB);
+        commentService.updateUserFace(teacher.getId(),uploadPathDB);
         return HSJSONResult.ok(uploadPathDB);
     }
 

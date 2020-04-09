@@ -1,6 +1,10 @@
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\Teacher.java
+D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\vo\CommentVO.java
+D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\Comment.java
+D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\Course.java
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\HSClass.java
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\Advice.java
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\User.java
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\Student.java
 D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\vo\AdviceVO.java
+D:\JavaWebProJect\class_manager_hs\pojo\src\main\java\cn\tohuangshuai\pojo\domain\StuCourse.java

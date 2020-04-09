@@ -4,6 +4,7 @@ import cn.tohuangshuai.common.util.IdUtil;
 import cn.tohuangshuai.common.util.PagedResult;
 import cn.tohuangshuai.common.util.TimeAgoUtils;
 import cn.tohuangshuai.dao.mapper.CommentMapper;
+import cn.tohuangshuai.pojo.domain.Advice;
 import cn.tohuangshuai.pojo.domain.Comment;
 import cn.tohuangshuai.pojo.domain.vo.CommentVO;
 import cn.tohuangshuai.service.CommentService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;
@@ -63,6 +65,22 @@ public class CommentServiceImpl implements CommentService {
         result.setPage(page);
 
         return result;
+    }
+
+    /**
+     * 修改评论头像
+     * @param id
+     * @param imageUrl
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserFace(String id, String imageUrl) {
+        Example example = new Example(Comment.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("authorId",id);
+        Comment comment = new Comment();
+        comment.setAuthorFace(imageUrl);
+        commentMapper.updateByExampleSelective(comment,example);
     }
 
 

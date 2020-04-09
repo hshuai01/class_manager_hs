@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BasicController {
 
     //文件存储路径
-    public static final String FILE_SPACE = "D:\\hs_class_manager";
+    public static final String FILE_SPACE = "C:\\hs_class_manager";
 
     //默认头像路径
     public static final String DEFAULT_FACE = "/total/face/totalface.jpg";

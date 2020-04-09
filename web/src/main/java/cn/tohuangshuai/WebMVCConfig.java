@@ -12,6 +12,8 @@ public class WebMVCConfig extends WebMvcConfigurationSupport {
     //本地路径映射
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("file:D:/hs_class_manager/");
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/META-INF/resources/")
+                .addResourceLocations("file:C:/hs_class_manager/");
     }
 }
